@@ -1,0 +1,25 @@
+{
+  "name": "wtw-cypress-automation-01",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "rimraf cypress/reports/*.json",
+    "cypress:run": "npm run clean:reports && cypress run --browser chrome --headless",
+    "cypress:open": "cypress open --browser chrome",
+    "report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/report.json",
+    "report:generate": "marge cypress/reports/report.json --reportDir cypress/reports --reportTitle 'Cypress Test Report'",
+    "report": "npm run report:merge && npm run report:generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.9.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "rimraf": "^5.0.7"
+  }
+}
